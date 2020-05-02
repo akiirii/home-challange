@@ -25,7 +25,7 @@ export const Flex = styled.div`
   flex-flow: row-reverse;
 `;
 
-export const Label = styled.div`
+export const Label = styled.label`
   margin: 10px 0;
 `;
 

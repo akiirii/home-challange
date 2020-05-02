@@ -2,30 +2,14 @@ import React from 'react';
 
 import { Container } from './style';
 import Input from '../Input';
+import Radio from '../Radio';
 import Step from '../Step';
+import config from './config';
 
-const config = [
-  {
-    name: 'name',
-    label: 'Full Name',
-    type: 'text',
-  },
-  {
-    name: 'email',
-    label: 'Email',
-    type: 'email',
-  },
-  {
-    name: 'phone',
-    label: 'Phone number',
-    type: 'text',
-  },
-  {
-    name: 'salary',
-    label: 'Salary indicatio',
-    type: 'text',
-  },
-];
+const components = {
+  Input,
+  Radio,
+};
 
 export class FormComponent extends React.Component {
   state = {
@@ -66,13 +50,14 @@ export class FormComponent extends React.Component {
 
     const filed = config[currentStep];
 
+    const Component = components[filed.component];
+
     return (
       <Container>
         <Step next={this.next} previous={this.previous}>
-          <Input
+          <Component
+            {...filed}
             onChange={this.onChange}
-            name={filed.name}
-            label={filed.label}
             submitted={submitted}
             value={fields[filed.name]}
             error={errors[filed.name]}
