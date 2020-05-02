@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import './App.css';
 import '@csstools/normalize.css';
 import { COLORS } from './constants';
+import { FormComponent } from './FormComponent';
 
 const Main = styled.div`
   background: ${COLORS.greyPastel};
@@ -20,6 +21,7 @@ const App = () => (
   <Main className="App">
     <Box>
       <h2>Home Challenge</h2>
+      <FormComponent />
     </Box>
   </Main>
 );

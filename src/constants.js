@@ -5,6 +5,8 @@ export const COLORS = {
   greyLight: '#e6e6e6',
   greyPastel: '#eef0f4',
   red: '#fc4a1a',
+  green: '#85d4ab',
+  blue: '#4abdac',
 };
 
 export const OPTIONS = [
