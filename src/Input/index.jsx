@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { InputContainer, ErrorContainer, Label } from './style';
 import { COLORS } from '../constants';
 
-
 function InputField({
   submitted, name, value, onChange, error, label,
 }) {

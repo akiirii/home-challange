@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  ButtonContainer, ButtonPrimary, ButtonSecondary,
+  ButtonContainer, ButtonPrimary, ButtonSecondary, StepContainer,
 } from './style';
 
 function Step({
@@ -10,7 +10,7 @@ function Step({
   const primaryMessage = isLast ? 'Done' : 'Next';
   return (
     <div>
-      {children}
+      <StepContainer>{children}</StepContainer>
       <ButtonContainer style={{ justifyContent: isFirst && 'flex-end' }}>
         {!isFirst && (
         <ButtonSecondary type="secondary" onClick={previous}>
@@ -28,9 +28,10 @@ function Step({
 Step.defaultProps = {
   isLast: false,
   isFirst: false,
+  children: null,
 };
 Step.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
   previous: PropTypes.func.isRequired,
   next: PropTypes.func.isRequired,
   isLast: PropTypes.bool,

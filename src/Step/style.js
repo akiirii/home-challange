@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { COLORS } from '../constants';
 
+export const StepContainer = styled.div`
+ padding: 16px;
+`;
+
 export const BasicButton = styled.button`
   border: none;
   min-width: 100px;
@@ -31,6 +35,7 @@ export const ButtonSecondary = styled(BasicButton)`
     color: ${COLORS.blue};
   }
 `;
+
 export const ButtonContainer = styled.div`
   display: flex;
   flex-flow: row;

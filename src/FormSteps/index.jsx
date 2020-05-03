@@ -24,13 +24,13 @@ export class FormSteps extends React.Component {
   // TODO proper validation
   getError = () => (this.getValue() ? '' : 'This field is required');
 
-  getPropgress = (step, length) => Math.round((step / (length - 1)) * 100);
+  getProgress = (step = 0, length) => Math.round((step / length) * 100);
 
   getValue = () => {
     const { fields, config } = this.props;
     const { currentStep } = this.state;
     const filed = config[currentStep];
-    return fields[filed.name];
+    return fields[filed.name] || '';
   };
 
   changeStep = (step) => {
@@ -39,6 +39,8 @@ export class FormSteps extends React.Component {
     const newStep = Math.max(0, Math.min(config.length - 1, currentStep + step));
     this.setState({ currentStep: newStep || 0, submitted: false });
   };
+
+  previous = () => this.changeStep(-1);
 
   next = () => {
     const { currentStep } = this.state;
@@ -61,7 +63,7 @@ export class FormSteps extends React.Component {
     const isFirst = !currentStep;
     const isLast = currentStep === config.length - 1;
     const error = submitted ? this.getError() : '';
-    const progress = this.getPropgress(currentStep, config.length);
+    const progress = this.getProgress(currentStep, config.length - 1);
     const Component = components[filed.component];
 
     return (

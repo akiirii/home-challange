@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Row, Title } from './style';
 
 function Done({ fields, options }) {
-  console.log(fields, options);
   return (
     <div>
       {options.map((option) => (
-        <div key={option.name}>
-          {option.label}
-          :
-          {fields[option.name]}
-        </div>
+        <Row key={option.name}>
+          <Title>
+            {option.label}
+          </Title>
+          <div>
+            {fields[option.name]}
+          </div>
+        </Row>
       ))}
     </div>
   );

@@ -1,18 +1,14 @@
 import styled from 'styled-components';
-import { COLORS } from '../constants';
 
-export const InputContainer = styled.div`
-  padding: 16px 0;
-  width: 100%;
-  box-sizing: border-box;
+export const Row = styled.div`
+  display: flex;
+  margin: 16px 0;
 `;
 
-export const Label = styled.label`
-  margin: 10px 0;
-`;
-
-
-export const ErrorContainer = styled.div`
-  color: ${COLORS.red};
-  padding: 8px 2px;
+export const Title = styled.div`
+  font-weight: bold;
+  margin-right: 5px;
+  &:after {
+    content: ':';
+  }
 `;
