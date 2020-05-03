@@ -66,6 +66,7 @@ export class FormSteps extends React.Component {
     const progress = this.getProgress(currentStep, config.length - 1);
     const Component = components[filed.component];
 
+
     return (
       <div>
         <ProgressBar progress={progress} />

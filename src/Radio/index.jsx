@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  InputContainer, ErrorContainer, Label,
+  ErrorContainer, Label, RadioContainer,
 } from './style';
 import { COLORS } from '../constants';
 
@@ -19,23 +19,24 @@ function RadioGroup({
   };
 
   return (
-    <InputContainer>
+    <div>
       <Label>{label}</Label>
       {options.map((option) => (
-        <div key={option}>
+        <RadioContainer key={option}>
           <input
             style={inputStyle}
             type="radio"
             checked={value === option}
             name={name}
+            id={option}
             value={option}
             onChange={handleChange}
           />
-          <Label htmlFor={name}>{option}</Label>
-        </div>
+          <label htmlFor={option}>{option}</label>
+        </RadioContainer>
       ))}
       {showError && <ErrorContainer>{error}</ErrorContainer>}
-    </InputContainer>
+    </div>
   );
 }
 
