@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS } from '../constants';
+import { COLORS, MEDIA_QUERY } from '../constants';
 
 export const StepContainer = styled.div`
  padding: 16px;
@@ -15,6 +15,7 @@ export const BasicButton = styled.button`
   align-items: center;
   cursor: pointer;
   padding: 16px;
+  margin: 8px 0;
 `;
 
 export const ButtonPrimary = styled(BasicButton)`
@@ -38,6 +39,11 @@ export const ButtonSecondary = styled(BasicButton)`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+  justify-content: center;
+  flex-flow: column-reverse;
+  
+  ${MEDIA_QUERY.s} {
+    justify-content: space-between;
+    flex-flow: row;
+  }
 `;

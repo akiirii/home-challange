@@ -48,13 +48,6 @@ export const RadioContainer = styled.div`
 }
 `;
 
-
 export const Label = styled.label`
   margin: 10px 0;
-`;
-
-
-export const ErrorContainer = styled.div`
-  color: ${COLORS.red};
-  padding: 8px 2px;
 `;

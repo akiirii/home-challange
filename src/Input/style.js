@@ -21,17 +21,6 @@ export const InputContainer = styled.div`
   }
 `;
 
-export const Flex = styled.div`
-  display: flex;
-  flex-flow: row-reverse;
-`;
-
 export const Label = styled.label`
   margin: 10px 0;
-`;
-
-export const ErrorContainer = styled.div`
-  color: ${COLORS.red};
-  padding: 8px 2px;
-  transition: color 0.5s;
 `;

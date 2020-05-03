@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { InputContainer, ErrorContainer, Label } from './style';
+import { InputContainer, Label } from './style';
 import { COLORS } from '../constants';
+import ErrorMessage from '../ErrorMessage';
 
 function InputField({
   submitted, name, value, onChange, error, label,
@@ -25,7 +26,7 @@ function InputField({
         value={value}
         onChange={handleChange}
       />
-      {showError && <ErrorContainer>{error}</ErrorContainer>}
+      <ErrorMessage error={error} />
     </InputContainer>
   );
 }

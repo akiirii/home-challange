@@ -17,3 +17,11 @@ export const OPTIONS = [
   '3.000 - 4.000',
   'Mehr als 4.000',
 ];
+
+export const BREAKPOINT = {
+  s: 576,
+};
+
+export const MEDIA_QUERY = {
+  s: `@media screen and (min-width: ${BREAKPOINT.s}px)`,
+};

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  ErrorContainer, Label, RadioContainer,
+  Label, RadioContainer,
 } from './style';
 import { COLORS } from '../constants';
-
+import ErrorMessage from '../ErrorMessage';
 
 function RadioGroup({
   submitted, name, value, onChange, error, label, options,
@@ -35,7 +35,7 @@ function RadioGroup({
           <label htmlFor={option}>{option}</label>
         </RadioContainer>
       ))}
-      {showError && <ErrorContainer>{error}</ErrorContainer>}
+      <ErrorMessage error={error} />
     </div>
   );
 }
