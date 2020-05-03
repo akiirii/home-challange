@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Radio from '../src/Radio';
+import ErrorMessage from '../src/ErrorMessage';
 
 describe('Radio', () => {
   const onChange = jest.fn();
@@ -16,7 +17,7 @@ describe('Radio', () => {
   it('should display error when error exist and submitted is true ', () => {
     const error = 'error Msg';
     const wrapper = shallow(<Radio onChange={onChange} name="test" label="Test Label" value="test1" options={options} error={error} submitted />);
-    expect(wrapper.contains(error)).toBe(true);
+    expect(wrapper.find(ErrorMessage).prop('error')).toBe(error);
   });
 
   it('should not display error when error exist and submitted is false ', () => {
