@@ -1,27 +1,18 @@
+/* TODO should be changed in eslint config */
+/* eslint react/jsx-props-no-spreading: 0 */
+
 import React from 'react';
-
 import { Container } from './style';
-import Input from '../Input';
-import Radio from '../Radio';
-import Step from '../Step';
-import config from './config';
+import { FormSteps } from '../FormSteps';
+import { DONE_CONFIG, FORM_CONFIG } from './config';
 
-const components = {
-  Input,
-  Radio,
-};
+
+const config = [...FORM_CONFIG, ...DONE_CONFIG];
 
 export class FormComponent extends React.Component {
   state = {
-    currentStep: 0,
-    submitted: false,
+    completed: false,
     fields: {
-      name: '',
-      email: '',
-      phone: '',
-      salary: '',
-    },
-    errors: {
       name: '',
       email: '',
       phone: '',
@@ -33,37 +24,27 @@ export class FormComponent extends React.Component {
     this.setState((state) => ({ fields: { ...state.fields, [name]: value } }));
   };
 
-  changeStep = (step) => {
-    const { currentStep } = this.state;
-    const newStep = Math.max(0, Math.min(config.length - 1, currentStep + step));
-    this.setState({ currentStep: newStep || 0 });
-  };
-
-  next = () => this.changeStep(1);
-
-  previous = () => this.changeStep(-1);
+  onSubmit = () => this.setState({ completed: true });
 
   render() {
-    const {
-      submitted, errors, fields, currentStep,
-    } = this.state;
+    const { fields, completed } = this.state;
 
-    const filed = config[currentStep];
-
-    const Component = components[filed.component];
+    if (completed) {
+      return (
+        <Container>
+          Your Form is completed
+        </Container>
+      );
+    }
 
     return (
       <Container>
-        <Step next={this.next} previous={this.previous}>
-          <Component
-            {...filed}
-            onChange={this.onChange}
-            submitted={submitted}
-            value={fields[filed.name]}
-            error={errors[filed.name]}
-          />
-        </Step>
-
+        <FormSteps
+          config={config}
+          onChange={this.onChange}
+          onSubmit={this.onSubmit}
+          fields={fields}
+        />
       </Container>
     );
   }

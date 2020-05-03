@@ -1,6 +1,6 @@
 import { OPTIONS } from '../constants';
 
-export default [
+export const FORM_CONFIG = [
   {
     name: 'name',
     label: 'Full Name',
@@ -25,5 +25,12 @@ export default [
     type: 'text',
     component: 'Radio',
     options: OPTIONS,
+  },
+];
+
+export const DONE_CONFIG = [
+  {
+    component: 'Done',
+    options: FORM_CONFIG.map((filed) => ({ name: filed.name, label: filed.label })),
   },
 ];
