@@ -2,7 +2,7 @@
 /* eslint react/jsx-props-no-spreading: 0 */
 
 import React from 'react';
-import { Container } from './style';
+import { Container, SuccessContainer } from './style';
 import { FormSteps } from '../FormSteps';
 import { DONE_CONFIG, FORM_CONFIG } from './config';
 
@@ -31,9 +31,9 @@ export class FormComponent extends React.Component {
 
     if (completed) {
       return (
-        <Container>
+        <SuccessContainer>
           Your Form is completed
-        </Container>
+        </SuccessContainer>
       );
     }
 

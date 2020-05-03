@@ -7,7 +7,7 @@ import { COLORS } from './constants';
 import { FormComponent } from './FormComponent';
 
 const Main = styled.div`
-  background: ${COLORS.greyPastel};
+  background: ${COLORS.background};
   height: 100vh;
   padding: 50px;
 `;

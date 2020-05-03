@@ -7,6 +7,7 @@ export const COLORS = {
   red: '#fc4a1a',
   green: '#85d4ab',
   blue: '#4abdac',
+  background: '#fcfcfc',
 };
 
 export const OPTIONS = [

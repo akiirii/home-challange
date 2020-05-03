@@ -1,22 +1,15 @@
 import styled from 'styled-components';
+import { COLORS } from '../constants';
 
 export const Container = styled.div`
-  width: 300px;
-  overflow: hidden;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 5px 10px ${COLORS.greyLight};
+  background-color: ${COLORS.white};
 `;
 
-export const Steps = styled.div`
-  width: 300px;
-  height: 300px;
-  display: flex;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;  
-`;
 
-export const Step = styled.div`
- width: 300px;
-  flex-shrink: 0;
-  height: 100%;
-  scroll-snap-align: start;
+export const SuccessContainer = styled(Container)`
+  padding: 50px;
+  text-align: center;
 `;

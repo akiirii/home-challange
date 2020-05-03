@@ -7,6 +7,7 @@ import Input from '../Input';
 import Radio from '../Radio';
 import Done from '../Done';
 import Step from '../Step';
+import ProgressBar from '../ProgressBar';
 
 const components = {
   Input,
@@ -22,6 +23,8 @@ export class FormSteps extends React.Component {
 
   // TODO proper validation
   getError = () => (this.getValue() ? '' : 'This field is required');
+
+  getPropgress = (step, length) => Math.round((step / (length - 1)) * 100);
 
   getValue = () => {
     const { fields, config } = this.props;
@@ -54,26 +57,27 @@ export class FormSteps extends React.Component {
   render() {
     const { config, fields, onChange } = this.props;
     const { currentStep, submitted } = this.state;
-
-
     const filed = config[currentStep];
     const isFirst = !currentStep;
     const isLast = currentStep === config.length - 1;
     const error = submitted ? this.getError() : '';
-
+    const progress = this.getPropgress(currentStep, config.length);
     const Component = components[filed.component];
 
     return (
-      <Step next={this.next} previous={this.previous} isFirst={isFirst} isLast={isLast}>
-        <Component
-          {...filed}
-          onChange={onChange}
-          submitted={submitted}
-          value={fields[filed.name]}
-          error={error}
-          fields={fields}
-        />
-      </Step>
+      <div>
+        <ProgressBar progress={progress} />
+        <Step next={this.next} previous={this.previous} isFirst={isFirst} isLast={isLast}>
+          <Component
+            {...filed}
+            onChange={onChange}
+            submitted={submitted}
+            value={fields[filed.name]}
+            error={error}
+            fields={fields}
+          />
+        </Step>
+      </div>
     );
   }
 }

@@ -5,7 +5,7 @@ import { ProgressContainer, Progress } from './style';
 function ProgressBar({ progress }) {
   return (
     <ProgressContainer>
-      <Progress css={`width: ${progress}`} />
+      <Progress style={{ width: `${progress}%` }} />
     </ProgressContainer>
   );
 }

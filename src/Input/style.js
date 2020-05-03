@@ -13,6 +13,7 @@ export const InputContainer = styled.div`
     padding: 8px 0;
     box-sizing: border-box;
     color: ${COLORS.primary};
+    transition: border-color 0.5s;
 
     &::-moz-placeholder {
       color: lighten(${COLORS.primary}, 20%);
@@ -32,4 +33,5 @@ export const Label = styled.label`
 export const ErrorContainer = styled.div`
   color: ${COLORS.red};
   padding: 8px 2px;
+  transition: color 0.5s;
 `;
